@@ -2,14 +2,7 @@
   import ExpandableMenu from "./ExpandableMenu.svelte";
 
   let search = "";
-  let exampleData = [
-    {
-      title: "General Document",
-      items: [
-        { title: "AGM", content: "This is an example AGM document." },
-        { title: "Annual Reports", content: "This is an example annual report document." },
-        { title: "By-Laws", content: "This is an example by-laws document." },
-      ],
+  let exampleData = [    {      title: "General Document",      items: [        { title: "AGM" },        { title: "Annual Reports" },        { title: "By-Laws" },      ],
     },
     {
       title: "Committees",
@@ -17,12 +10,12 @@
         {
           title: "Administrative",
           items: [
-            { title: "Board of Committee", content: "This is an example Board of Committee document." },
-            { title: "Governance Committee", content: "This is an example Governance Committee document." },
-            { title: "Audit Committee", content: "This is an example Audit Committee document." },
-            { title: "Nominating Committee", content: "This is an example Nominating Committee document." },
-            { title: "Regional Chairs Committee", content: "This is an example Regional Chairs Committee document." },
-            { title: "Executive Committee", content: "This is an example Executive Committee document." },
+            { title: "Board of Committee" },
+            { title: "Governance Committee" },
+            { title: "Audit Committee" },
+            { title: "Nominating Committee" },
+            { title: "Regional Chairs Committee" },
+            { title: "Executive Committee" },
           ],
         },
         {
@@ -30,26 +23,54 @@
           items: [
             {
               title: "BC Regional Committee",
-              items: [{ title: "Safety & Security Committee", content: "This is an example Safety & Security Committee document." }],
+              items: [{ title: "Safety & Security Committee" }],
             },
-            { title: "Prairie Provinces Committee", content: "This is an example Prairie Provinces Committee document." },
-            { title: "Ontario Regional Committee", content: "This is an example Ontario Regional Committee document." },
-            { title: "Quebec Regional Committee", content: "This is an example Quebec Regional Committee document." },
-            { title: "Atlantic Regional Committee", content: "This is an example Atlantic Regional Committee document." },
+            { title: "Prairie Provinces Committee" },
+            { title: "Ontario Regional Committee" },
+            { title: "Quebec Regional Committee" },
+            { title: "Atlantic Regional Committee" },
+          ],
+        },
+        {
+          title: "National",
+          items: [
+            { title: "Business Members National Committee" },
+            { title: "Business Members North American Pavilion/Day Taskforce" },
+            { title: "Communication & Public Affairs National Committee" },
+            {
+              title: "Workforce Development National Committee",
+              items: [
+                { title: "Awards and Recognition Sub-Committee" },
+                { title: "Youth and Emerging Leaders Sub-Committee" },
+                { title: "Labour Relations Networking Group" },
+                { title: "Talent Acquisition & Recruiters Networking Group" },
+                { title: "Driver Trainers Networking Group" },
+              ],
+            },
+            {
+              title: "Technical Service National Committee",
+              items: [
+                { title: "Maintenance & Vehicle Technology Sub-Committee" },
+                { title: "Planning & ITS Sub-Committee" },
+                { title: "Statistics Sub-Committee" },
+                { title: "Accessible Transit Sub-Committee" },
+                { title: "Mobility Management Implementation Taskforce" },
+                { title: "Transit Board Members National Committee" },
+              ],
+            },
           ],
         },
       ],
     },
   ];
 
+
   let selectedDocument = null;
   let filteredData = exampleData;
 
   function handleSelectDocument(event) {
-  selectedDocument = event.detail;
-  console.log(selectedDocument);
-}
-
+    selectedDocument = event.detail;
+  }
 
   function updateSearch(event) {
     search = event.target.value;
@@ -68,7 +89,6 @@
     }
   }
 </script>
-
 
 <div class="flex w-full min-h-screen">
   <div class="w-1/2 p-8">
@@ -101,11 +121,10 @@
             title="{data.title}"
             items="{data.items}"
             on:select="{handleSelectDocument}"
+            selectedDocument="{selectedDocument}"
           />
         {/if}
       {/each}
     </div>
   </div>
 </div>
-
-
