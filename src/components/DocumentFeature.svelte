@@ -3,56 +3,83 @@
   let search = "";
   let exampleData = [
     {
-      title: "General Document",
-      items: ["AGM", "Annual Reports", "By-Laws"]
-    },
-    {
-      title: "Committees",
-      items: [
-        "Administrative",
-        "Regional Committees",
-        "National",
-      ]
-    },
-    // Add more sections if needed
-  ];
+    title: "General Document",
+    items: [
+      {
+        title: "AGM",
+        content: "This is an example AGM document.",
+      },
+      {
+        title: "Annual Reports",
+        content: "This is an example annual report document.",
+      },
+      {
+        title: "By-Laws",
+        content: "This is an example by-laws document.",
+      },
+    ],
+  },
+];
+
+
+
+  let selectedDocument = null;
+  let filteredData = exampleData;
+
+  function handleSelectDocument(event) {
+    selectedDocument = event.detail;
+  }
+
+  function updateSearch(event) {
+    search = event.target.value;
+    if (search.trim() === "") {
+      filteredData = exampleData;
+    } else {
+      filteredData = exampleData.map((data) => {
+        const filteredItems = data.items.filter((item) =>
+          item.title.toLowerCase().includes(search.toLowerCase())
+        );
+        return {
+          ...data,
+          items: filteredItems,
+        };
+      });
+    }
+  }
 </script>
 
 <div class="flex w-full min-h-screen">
   <div class="w-1/2 p-8">
     <h2 class="text-3xl mb-4">Selected Document</h2>
     <div class="overflow-y-auto h-full">
-      <!-- Add your documents here with appropriate classes and styles -->
+      {#if selectedDocument}
+        <div class="p-4 bg-white shadow rounded">
+          <h3 class="text-2xl font-semibold mb-2">{selectedDocument.title}</h3>
+          <p>{selectedDocument.content}</p>
+        </div>
+      {/if}
     </div>
   </div>
 
   <div class="w-1/2 p-8">
-    <div class="mb-4">
       <input
-        type="text"
-        placeholder="Search documents"
-        bind:value="{search}"
-        class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-indigo-400"
-      />
-    </div>
+      type="text"
+      placeholder="Search documents..."
+      bind:value="{search}"
+      on:input="{updateSearch}"
+      class="w-full p-2 mb-4 bg-white border border-gray-300 rounded shadow focus:outline-none focus:ring-2 focus:ring-indigo-400"
+    />
 
-    <div class="overflow-y-auto h-full">
-      {#each exampleData as data}
-        <ExpandableMenu title="{data.title}" items="{data.items}" />
-      {/each}
-    </div>
+  <div class="overflow-y-auto h-full">
+  {#each filteredData as data}
+    {#if data.items.length > 0}
+      <ExpandableMenu
+        title="{data.title}"
+        items="{data.items}"
+        on:select="{handleSelectDocument}"
+      />
+    {/if}
+  {/each}
+</div>
   </div>
 </div>
-
-<style>
-  .overflow-y-auto {
-    scrollbar-width: thin;
-  }
-  .overflow-y-auto::-webkit-scrollbar {
-    width: 6px;
-  }
-  .overflow-y-auto::-webkit-scrollbar-thumb {
-    background-color: rgba(107, 114, 128, 0.5);
-    border-radius: 9999px;
-  }
-</style>

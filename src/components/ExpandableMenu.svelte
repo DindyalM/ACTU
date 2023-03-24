@@ -5,6 +5,9 @@
   function toggle() {
     expanded = !expanded;
   }
+  function selectDocument(item) {
+    dispatch("select", item);
+  }
 </script>
 
 <div class="w-full">
@@ -21,9 +24,9 @@
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2"
         d="M19 9l-7 7-7-7"
       ></path>
     </svg>
@@ -31,8 +34,12 @@
   {#if expanded}
     <ul class="list-disc ml-4">
       {#each items as item}
-        <li class="mb-1">{item}</li>
+        <li class="mb-1">
+          <button on:click={() => selectDocument(item)} class="text-left focus:outline-none focus:ring-2 focus:ring-indigo-400">
+            {item.title}
+          </button>
+        </li>
       {/each}
     </ul>
-  {/if}
+{/if}
 </div>
