@@ -1,26 +1,59 @@
 <script>
   import ExpandableMenu from "./ExpandableMenu.svelte";
+
   let search = "";
-  let exampleData = [
-    {
+ let exampleData = [
+  {
     title: "General Document",
     items: [
+      { title: "AGM", content: "This is an example AGM document." },
+      { title: "Annual Reports", content: "This is an example annual report document." },
+      { title: "By-Laws", content: "This is an example by-laws document." },
+    ],
+  },
+  {
+    title: "Committees",
+    items: [
       {
-        title: "AGM",
-        content: "This is an example AGM document.",
+        title: "Administrative",
+        items: [
+          { title: "Board of Committee", content: "This is an example Board of Committee document." },
+          { title: "Governance Committee", content: "This is an example Governance Committee document." },
+          { title: "Audit Committee", content: "This is an example Audit Committee document." },
+          { title: "Nominating Committee", content: "This is an example Nominating Committee document." },
+          { title: "Regional Chairs Committee", content: "This is an example Regional Chairs Committee document." },
+          { title: "Executive Committee", content: "This is an example Executive Committee document." },
+        ],
       },
       {
-        title: "Annual Reports",
-        content: "This is an example annual report document.",
+        title: "Regional Committees",
+        items: [
+          {
+            title: "BC Regional Committee",
+            items: [{ title: "Safety & Security Committee", content: "This is an example Safety & Security Committee document." }],
+          },
+          {
+            title: "Prairie Provinces Committee",
+            items: [{ title: "Prairie Provinces Committee Item", content: "This is an example Prairie Provinces Committee document." }],
+          },
+          {
+            title: "Ontario Regional Committee",
+            items: [{ title: "Ontario Regional Committee Item", content: "This is an example Ontario Regional Committee document." }],
+          },
+          {
+            title: "Quebec Regional Committee",
+            items: [{ title: "Quebec Regional Committee Item", content: "This is an example Quebec Regional Committee document." }],
+          },
+          {
+            title: "Atlantic Regional Committee",
+            items: [{ title: "Atlantic Regional Committee Item", content: "This is an example Atlantic Regional Committee document." }],
+          },
+        ],
       },
-      {
-        title: "By-Laws",
-        content: "This is an example by-laws document.",
-      },
+      // Add more categories if needed
     ],
   },
 ];
-
 
 
   let selectedDocument = null;
@@ -47,7 +80,6 @@
     }
   }
 </script>
-
 <div class="flex w-full min-h-screen">
   <div class="w-1/2 p-8">
     <h2 class="text-3xl mb-4">Selected Document</h2>
@@ -62,7 +94,7 @@
   </div>
 
   <div class="w-1/2 p-8">
-      <input
+    <input
       type="text"
       placeholder="Search documents..."
       bind:value="{search}"
@@ -70,16 +102,16 @@
       class="w-full p-2 mb-4 bg-white border border-gray-300 rounded shadow focus:outline-none focus:ring-2 focus:ring-indigo-400"
     />
 
-  <div class="overflow-y-auto h-full">
-  {#each filteredData as data}
-    {#if data.items.length > 0}
-      <ExpandableMenu
-        title="{data.title}"
-        items="{data.items}"
-        on:select="{handleSelectDocument}"
-      />
-    {/if}
-  {/each}
-</div>
+    <div class="overflow-y-auto h-full">
+      {#each filteredData as data}
+        {#if data.items.length > 0}
+          <ExpandableMenu
+            title="{data.title}"
+            items="{data.items}"
+            on:select="{handleSelectDocument}"
+          />
+        {/if}
+      {/each}
+    </div>
   </div>
 </div>

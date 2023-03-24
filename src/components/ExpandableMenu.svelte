@@ -2,13 +2,16 @@
   export let title = "";
   export let items = [];
   let expanded = false;
+
   function toggle() {
     expanded = !expanded;
   }
+
   function selectDocument(item) {
     dispatch("select", item);
   }
 </script>
+
 
 <div class="w-full">
   <button
@@ -34,12 +37,23 @@
   {#if expanded}
     <ul class="list-disc ml-4">
       {#each items as item}
-        <li class="mb-1">
-          <button on:click={() => selectDocument(item)} class="text-left focus:outline-none focus:ring-2 focus:ring-indigo-400">
-            {item.title}
-          </button>
-        </li>
+        {#if item.items}
+          <li class="mb-1">
+            <ExpandableMenu
+              title={item.title}
+              items={item.items}
+              on:select={selectDocument}
+            />
+          </li>
+        {:else}
+          <li class="mb-1">
+            <button on:click={() => selectDocument(item)} class="text-left focus:outline-none focus:ring-2 focus:ring-indigo-400">
+              {item.title}
+            </button>
+          </li>
+        {/if}
       {/each}
     </ul>
-{/if}
+  {/if}
 </div>
+
