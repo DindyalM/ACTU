@@ -2,11 +2,17 @@
   export let title = "";
   export let items = [];
   let expanded = false;
+
   function toggle() {
     expanded = !expanded;
   }
+
   function selectDocument(item) {
-    dispatch("select", item);
+    if (item.items) {
+      item.expanded = !item.expanded;
+    } else {
+      dispatch("select", item);
+    }
   }
 </script>
 
@@ -35,11 +41,47 @@
     <ul class="list-disc ml-4">
       {#each items as item}
         <li class="mb-1">
-          <button on:click={() => selectDocument(item)} class="text-left focus:outline-none focus:ring-2 focus:ring-indigo-400">
-            {item.title}
-          </button>
+          <div class="flex items-center justify-between">
+            <button
+              on:click={() => selectDocument(item)}
+              class="text-left focus:outline-none focus:ring-2 focus:ring-indigo-400"
+            >
+              {item.title}
+            </button>
+            {#if item.items}
+              <svg
+                class="{item.expanded ? 'transform rotate-180' : ''} w-4 h-4 text-gray-500 transition-all duration-300"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+                on:click={() => item.expanded = !item.expanded}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M19 9l-7 7-7-7"
+                ></path>
+              </svg>
+            {/if}
+          </div>
+          {#if item.expanded}
+            <ul class="list-disc ml-4">
+              {#each item.items as subitem}
+                <li class="mb-1">
+                  <button
+                    on:click={() => selectDocument(subitem)}
+                    class="text-left focus:outline-none focus:ring-2 focus:ring-indigo-400"
+                  >
+                    {subitem.title}
+                  </button>
+                </li>
+              {/each}
+            </ul>
+          {/if}
         </li>
       {/each}
     </ul>
-{/if}
+  {/if}
 </div>
