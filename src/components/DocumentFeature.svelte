@@ -46,8 +46,10 @@
   let filteredData = exampleData;
 
   function handleSelectDocument(event) {
-    selectedDocument = event.detail;
-  }
+  selectedDocument = event.detail;
+  console.log(selectedDocument);
+}
+
 
   function updateSearch(event) {
     search = event.target.value;
@@ -67,6 +69,7 @@
   }
 </script>
 
+
 <div class="flex w-full min-h-screen">
   <div class="w-1/2 p-8">
     <h2 class="text-3xl mb-4">Selected Document</h2>
@@ -76,6 +79,8 @@
           <h3 class="text-2xl font-semibold mb-2">{selectedDocument.title}</h3>
           <p>{selectedDocument.content}</p>
         </div>
+      {:else}
+        <p>No document selected</p>
       {/if}
     </div>
   </div>
@@ -102,3 +107,5 @@
     </div>
   </div>
 </div>
+
+

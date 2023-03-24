@@ -1,7 +1,11 @@
 <script>
+  import { createEventDispatcher } from "svelte";
+
   export let title = "";
   export let items = [];
   let expanded = false;
+
+  const dispatch = createEventDispatcher();
 
   function toggle() {
     expanded = !expanded;
