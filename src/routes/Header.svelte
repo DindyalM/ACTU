@@ -7,7 +7,7 @@
 
         <li><a href="/members" class="hover:text-gray-400">Directory</a></li>
 
-        <li><a href="#" class="hover:text-gray-400">Documents</a></li>
+        <li><a href="/documents" class="hover:text-gray-400">Documents</a></li>
         <li><a href="#" class="hover:text-gray-400">Events</a></li>
         <li><a href="#" class="hover:text-gray-400">Discussions Board</a></li>
         <li><a href="#" class="hover:text-gray-400">Magazines</a></li>
