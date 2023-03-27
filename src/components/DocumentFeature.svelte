@@ -90,8 +90,8 @@
   }
 </script>
 
-<div class="flex w-full min-h-screen">
-  <div class="w-1/2 p-8">
+<div class="container">
+  <div class="selected-document-container">
     <h2 class="text-3xl mb-4">Selected Document</h2>
     <div class="overflow-y-auto h-full">
       {#if selectedDocument}
@@ -105,7 +105,7 @@
     </div>
   </div>
 
-  <div class="w-1/2 p-8">
+ <div class="side-menu">
     <input
       type="text"
       placeholder="Search documents..."
@@ -128,3 +128,28 @@
     </div>
   </div>
 </div>
+<style>
+  .container {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+  }
+
+  .selected-document-container {
+    flex: 1;
+    padding: 2rem;
+    background-color: #F3F4F6; /* Light Gray */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .side-menu {
+    width: 300px;
+    max-width: 300px;
+    background-color: #1E40AF; /* Blue */
+    padding: 1rem;
+    height: 100%;
+    overflow-y: auto;
+  }
+</style>

@@ -19,19 +19,20 @@
     }
   }
 </script>
-
 <div class="w-full">
   <button
     on:click="{toggle}"
-    class="w-full flex items-center justify-between py-2 text-left text-lg font-semibold focus:outline-none focus:ring-2 focus:ring-indigo-400"
+    class="menu-title text-lg font-semibold focus:outline-none"
   >
     {title}
     <svg
-      class="{expanded ? 'transform rotate-180' : ''} w-4 h-4 text-gray-500 transition-all duration-300"
+      class="{expanded ? 'transform rotate-180' : ''} w-4 h-4 text-white transition-all duration-300"
       fill="none"
       stroke="currentColor"
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
+      width="16"
+      height="16" 
     >
       <path
         strokeLinecap="round"
@@ -42,7 +43,8 @@
     </svg>
   </button>
   {#if expanded}
-    <ul class="list-disc ml-4">
+    <ul class="list-disc ml-4 nested-menu {expanded ? 'expanded' : ''}">
+      <!-- ... -->
       {#each items as item}
         <li class="mb-1">
           <div class="flex items-center justify-between">
@@ -89,3 +91,6 @@
     </ul>
   {/if}
 </div>
+<style>
+ 
+</style>
