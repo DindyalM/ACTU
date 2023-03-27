@@ -34,107 +34,184 @@
   function submitForm() {
     // Handle form submission
   }
+  
+  
 </script>
 
-<div class="flex flex-col">
-  <h2 class="text-xl font-semibold mb-4">Past Events</h2>
-  {#each events as event}
-    <div class="flex mb-4">
-      <div class="mr-4">
-        <div class="text-3xl font-semibold">{event.date.slice(8)}</div>
-        <div class="text-sm">{event.date.slice(0, 7)}</div>
+<div class="page">
+  <h2 class="title">Past Events</h2>
+  <div class="events-list">
+    <div class="event">
+      <div class="event-info">
+        <h3 class="event-title">Event Title 1</h3>
+        <p class="event-date">Date: May 5, 2023</p>
+        <p class="event-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
       </div>
-      <div class="flex-1">
-        <div class="text-lg font-semibold">{event.title}</div>
-        <div class="text-sm">{event.description}</div>
-        <div class="text-sm mt-2">Attendees: {event.attendees.join(", ") || "None"}</div>
-        {#if event.id === events[0].id}
-          <button on:click={() => joinEvent(event)} class="mt-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700">
-            Join Event
-          </button>
-        {/if}
+      <div class="event-actions">
+        <button class="event-media-btn">View Past Event Media</button>
+        <button id="join-btn" class="event-join-btn">Join Event</button>
       </div>
     </div>
-  {/each}
-</div>
-
-{#if showForm}
-  <div class="flex flex-col">
-    <h2 class="text-xl font-semibold mb-4">Join {selectedEvent.title}</h2>
-    <form on:submit|preventDefault="{submitForm}">
-      <div class="mb-4">
-        <label for="name" class="block font-semibold mb-2">Name</label>
-        <input type="text" id="name" name="name" required class="w-full border border-gray-300 p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500" />
+    <div class="event">
+      <div class="event-info">
+        <h3 class="event-title">Event Title 2</h3>
+        <p class="event-date">Date: December 31, 2022</p>
+        <p class="event-description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
       </div>
-      <div class="mb-4">
-        <label for="email" class="block font-semibold mb-2">Email</label>
-        <input type="email" id="email" name="email" required class="w-full border border-gray-300 p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500" />
+      <div class="event-actions">
+        <button class="event-join-btn disabled">Join Event</button>
+        <button class="event-media-btn">View Past Event Media</button>
+        
       </div>
-      <button type="submit" class="bg-blue-500 text-white rounded hover:bg-blue-700 px-4 py-2">Join</button>
+    </div>
+    <div class="event">
+      <div class="event-info">
+        <h3 class="event-title">Event Title 3</h3>
+        <p class="event-date">Date: November 30, 2022</p>
+        <p class="event-description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </div>
+      <div class="event-actions">
+        <button class="event-join-btn disabled">Join Event</button>
+        <button class="event-media-btn">View Past Event Media</button>
+      </div>
+    </div>
+  </div>
+  <div class="join-form hidden">
+    <h3 class="form-title">Join Event</h3>
+    <form class="form">
+      <label class="form-label" for="name-input">Name:</label>
+      <input class="form-input" type="text" id="name-input" name="name" required>
+      <label class="form-label" for="email-input">Email:</label>
+      <input class="form-input" type="email" id="email-input" name="email" required>
+      <label class="form-label" for="message-input">Message:</label>
+      <textarea class="form-input" id="message-input" name="message" rows="3" required></textarea>
+      <button class="submit-btn" type="submit">Submit</button>
     </form>
   </div>
-{/if}
+</div>
+
 <style>
-.page-container {
+.page {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   align-items: center;
-  padding: 1rem;
+  padding: 2rem;
 }
 
-.event-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  width: 100%;
+.title {
+  font-size: 2rem;
+  margin-bottom: 2rem;
 }
 
-.event-list li {
+.events-list {
   display: flex;
+  flex-direction: column;
   align-items: center;
+  gap: 2rem;
+  width: 100%;
+}
+
+.event {
+  display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  padding: 1rem;
-  border-bottom: 1px solid #ccc;
+  align-items: center;
   width: 100%;
+  padding: 2rem;
+  background-color: #f5f5f5;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
+}
+
+.event-info {
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+.event-title {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.event-date, .event-description {
+  margin-bottom: 0.5rem;
+}
+
+.event-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.event-join-btn, .event-media-btn {
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 1rem;
+  border: none;
+  border-radius: 0.25rem;
   cursor: pointer;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 }
 
-.event-list li:hover {
-  background-color: #f0f0f0;
+.event-join-btn.disabled {
+  background-color: #ccc;
+  color: #888;
+  cursor: not-allowed;
 }
 
-.event-list li:last-child {
-  border-bottom: none;
-}
-
-.event-details {
-  padding: 1rem;
-  background-color: #f0f0f0;
-  width: 100%;
-  margin-top: 1rem;
-}
-
-.join-event-btn {
+.event-join-btn:hover, .event-media-btn:hover {
   background-color: #1e90ff;
   color: #fff;
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 0.25rem;
-  font-size: 1rem;
-  cursor: pointer;
-  margin-top: 1rem;
 }
 
-.join-event-form {
+.join-form {
   display: none;
-  padding: 1rem;
-  background-color: #f0f0f0;
+  margin-top: 2rem;
   width: 100%;
-  margin-top: 1rem;
+  max-width: 30rem;
 }
 
-.join-event-form.show {
-  display: block;
+.form-title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-label {
+  font-size: 1rem;
+}
+
+.form-input, .form-textarea {
+  font-size: 1rem;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 0.25rem;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
+}
+
+.form-textarea {
+  resize: vertical;
+}
+
+.submit-btn {
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 1rem;
+  border: none;
+  border-radius: 0.25rem;
+  background-color: #1e90ff;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.submit-btn:hover {
+  background-color: #0077b6;
+  color: #fff;
 }
 </style>
