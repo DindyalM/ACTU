@@ -143,26 +143,120 @@
 </div>
 <style>
   .container {
-    display: flex;
-    min-height: 100vh;
-    width: 100%;
-  }
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+}
 
-  .selected-document-container {
-    flex: 1;
-    padding: 2rem;
-    background-color: #F3F4F6; /* Light Gray */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
+.selected-document-container {
+  flex: 1;
+  padding: 2rem;
+  background-color: #F3F4F6; /* Light Gray */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 
-  .side-menu {
-    width: 300px;
-    max-width: 300px;
-    background-color: #1E40AF; /* Blue */
-    padding: 1rem;
-    height: 100%;
-    overflow-y: auto;
-  }
+.side-menu {
+  width: 300px;
+  max-width: 300px;
+  background-color: #1E40AF; /* Blue */
+  padding: 1rem;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.menu-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #FFF;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  background-color: #1E40AF; /* Blue */
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.menu-title:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.menu-title:focus {
+  outline: none;
+}
+
+.menu-title svg {
+  fill: none;
+  stroke: #FFF;
+  transition: transform 0.3s ease;
+}
+
+.menu-title:focus svg,
+.menu-title:hover svg {
+  stroke: rgba(255, 255, 255, 0.8);
+}
+
+.nested-menu {
+  margin-top: 0.5rem;
+  padding-left: 1rem;
+  display: none;
+}
+
+.expanded .nested-menu {
+  display: block;
+}
+
+.menu-item {
+  margin-bottom: 0.5rem;
+}
+
+.menu-item button {
+  color: #FFF;
+  text-decoration: none;
+  display: block;
+  padding: 0.5rem;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.menu-item button:focus,
+.menu-item button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.menu-item.active button {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 0.25rem;
+}
+
+.submenu {
+  margin-left: 1rem;
+  margin-top: 0.5rem;
+  padding-left: 0.5rem;
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+  display: none;
+}
+
+.submenu.active {
+  display: block;
+}
+
+.sub-submenu {
+  margin-left: 1rem;
+  margin-top: 0.5rem;
+  padding-left: 0.5rem;
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+  display: none;
+}
+
+.sub-submenu.active {
+  display: block;
+}
+
 </style>
