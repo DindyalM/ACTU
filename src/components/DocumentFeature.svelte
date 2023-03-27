@@ -73,21 +73,32 @@
   }
 
   function updateSearch(event) {
-    search = event.target.value;
-    if (search.trim() === "") {
-      filteredData = exampleData;
-    } else {
-      filteredData = exampleData.map((data) => {
-        const filteredItems = data.items.filter((item) =>
-          item.title.toLowerCase().includes(search.toLowerCase())
-        );
+  search = event.target.value.toLowerCase();
+
+  if (search.trim() === "") {
+    // If the search query is empty, show all items
+    filteredData = exampleData;
+  } else {
+    // If the search query is not empty, filter the items and sub-items based on the query
+    filteredData = exampleData.map(data => {
+      // Filter the top-level item based on the query
+      const filteredItem = {...data};
+      filteredItem.items = filteredItem.items.filter(item => item.title.toLowerCase().includes(search));
+
+      // Filter the sub-items based on the query
+      filteredItem.items = filteredItem.items.map(item => {
+        const filteredSubItems = item.items ? item.items.filter(subItem => subItem.title.toLowerCase().includes(search)) : null;
         return {
-          ...data,
-          items: filteredItems,
+          ...item,
+          items: filteredSubItems
         };
-      });
-    }
+      }).filter(item => item.items !== null);
+
+      return filteredItem;
+    }).filter(data => data.items.length > 0);
   }
+}
+
 </script>
 
 <div class="container">
