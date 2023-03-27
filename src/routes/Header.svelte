@@ -9,7 +9,7 @@
 
         <li><a href="/documents" class="hover:text-gray-400">Documents</a></li>
         <li><a href="/events" class="hover:text-gray-400">Events</a></li>
-        <li><a href="/threads" class="hover:text-gray-400">Forum</a></li>
+        <li><a href="/threads" class="hover:text-gray-400">Committees Thread</a></li>
         <li><a href="#" class="hover:text-gray-400">Magazines</a></li>
       </ul>
     </nav>
