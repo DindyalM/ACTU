@@ -2,67 +2,84 @@
   import ExpandableMenu from "./ExpandableMenu.svelte";
 
   let search = "";
-  let exampleData = [    {      title: "General Document",      items: [        { title: "AGM" },        { title: "Annual Reports" },        { title: "By-Laws" },      ],
-    },
-    {
-      title: "Committees",
-      items: [
-        {
-          title: "Administrative",
-          items: [
-            { title: "Board of Committee" },
-            { title: "Governance Committee" },
-            { title: "Audit Committee" },
-            { title: "Nominating Committee" },
-            { title: "Regional Chairs Committee" },
-            { title: "Executive Committee" },
-          ],
-        },
-        {
-          title: "Regional Committees",
-          items: [
-            {
-              title: "BC Regional Committee",
-              items: [{ title: "Safety & Security Committee" }],
-            },
-            { title: "Prairie Provinces Committee" },
-            { title: "Ontario Regional Committee" },
-            { title: "Quebec Regional Committee" },
-            { title: "Atlantic Regional Committee" },
-          ],
-        },
-        {
-          title: "National",
-          items: [
-            { title: "Business Members National Committee" },
-            { title: "Business Members North American Pavilion/Day Taskforce" },
-            { title: "Communication & Public Affairs National Committee" },
-            {
-              title: "Workforce Development National Committee",
-              items: [
-                { title: "Awards and Recognition Sub-Committee" },
-                { title: "Youth and Emerging Leaders Sub-Committee" },
-                { title: "Labour Relations Networking Group" },
-                { title: "Talent Acquisition & Recruiters Networking Group" },
-                { title: "Driver Trainers Networking Group" },
-              ],
-            },
-            {
-              title: "Technical Service National Committee",
-              items: [
-                { title: "Maintenance & Vehicle Technology Sub-Committee" },
-                { title: "Planning & ITS Sub-Committee" },
-                { title: "Statistics Sub-Committee" },
-                { title: "Accessible Transit Sub-Committee" },
-                { title: "Mobility Management Implementation Taskforce" },
-                { title: "Transit Board Members National Committee" },
-              ],
-            },
-          ],
-        },
-      ],
-    },
-  ];
+  let threads = [
+  {
+    "title": "General Document",
+    "topics": [
+      {
+        "title": "AGM",
+        "posts": [
+          {
+            "author": "User A",
+            "message": "This is the first post.",
+            "comments": [
+              {
+                "author": "User B",
+                "message": "This is a comment on the first post."
+              }
+            ]
+          },
+          {
+            "author": "User C",
+            "message": "This is the second post.",
+            "comments": [
+              {
+                "author": "User D",
+                "message": "This is a comment on the second post."
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Committees",
+    "topics": [
+      {
+        "title": "Administrative",
+        "posts": [
+          {
+            "author": "User F",
+            "message": "This is the first post.",
+            "comments": [
+              {
+                "author": "User G",
+                "message": "This is a comment on the first post."
+              }
+            ]
+          },
+          {
+            "author": "User I",
+            "message": "This is the second post.",
+            "comments": [
+              {
+                "author": "User J",
+                "message": "This is a comment on the second post."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Marketing",
+        "posts": [
+          {
+            "author": "User K",
+            "message": "This is the first post for Marketing.",
+            "comments": [
+              {
+                "author": "User L",
+                "message": "This is a comment on the first post for Marketing."
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+];
+
 
 
   let selectedDocument = null;
