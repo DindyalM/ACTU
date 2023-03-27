@@ -73,14 +73,10 @@
   }
 
  function updateSearch(event) {
-  showMenu = false; // add this line to always close all menus
-  showMembers = false;
   search = event.target.value.toLowerCase();
   filteredOptions = options.filter(option =>
     option.label.toLowerCase().includes(search)
   );
-
-
 
   if (search.trim() === "") {
     // If the search query is empty, show all items

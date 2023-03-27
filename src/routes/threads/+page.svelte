@@ -1,10 +1,10 @@
 <script>
- let threads = [
+let threads = [
   {
-    "title": "General Document",
+    "title": "Administrative",
     "topics": [
       {
-        "title": "AGM",
+        "title": "Board of Committee ",
         "posts": [
           {
             "author": "User A",
@@ -27,47 +27,95 @@
             ]
           }
         ]
-      }
-    ]
-  },
-  {
-    "title": "Committees",
-    "topics": [
+      },
       {
-        "title": "Administrative",
+        "title": "Governance Committee",
         "posts": [
           {
-            "author": "User F",
-            "message": "This is the first post.",
+            "author": "User E",
+            "message": "This is the first post for Topic 2.",
             "comments": [
               {
-                "author": "User G",
-                "message": "This is a comment on the first post."
-              }
-            ]
-          },
-          {
-            "author": "User I",
-            "message": "This is the second post.",
-            "comments": [
-              {
-                "author": "User J",
-                "message": "This is a comment on the second post."
+                "author": "User F",
+                "message": "This is a comment on the first post for Topic 2."
               }
             ]
           }
         ]
       },
       {
-        "title": "Regional Committees",
+        "title": "Audit Committee",
         "posts": [
           {
-            "author": "User K",
-            "message": "This is the first post for MRegional Committees.",
+            "author": "User E",
+            "message": "This is the first post for Topic 2.",
             "comments": [
               {
-                "author": "User L",
-                "message": "This is a comment on the first post for Regional Committees."
+                "author": "User F",
+                "message": "This is a comment on the first post for Topic 2."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Nominating Committee",
+        "posts": [
+          {
+            "author": "User E",
+            "message": "This is the first post for Topic 2.",
+            "comments": [
+              {
+                "author": "User F",
+                "message": "This is a comment on the first post for Topic 2."
+              }
+            ]
+          }
+        ]
+      },{
+        "title": "Regional Chairs Committee",
+        "posts": [
+          {
+            "author": "User E",
+            "message": "This is the first post for Topic 2.",
+            "comments": [
+              {
+                "author": "User F",
+                "message": "This is a comment on the first post for Topic 2."
+              }
+            ]
+          }
+        ]
+      },{
+        "title": "Executive Committee",
+        "posts": [
+          {
+            "author": "User E",
+            "message": "This is the first post for Topic 2.",
+            "comments": [
+              {
+                "author": "User F",
+                "message": "This is a comment on the first post for Topic 2."
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Regional Committees",
+    "topics": [
+      {
+        "title": "Topic 1",
+        "posts": [
+          {
+            "author": "User G",
+            "message": "This is the first post for Topic 1.",
+            "comments": [
+              {
+                "author": "User H",
+                "message": "This is a comment on the first post for Topic 1."
               }
             ]
           }
@@ -76,6 +124,8 @@
     ]
   }
 ];
+
+
 
 
 
