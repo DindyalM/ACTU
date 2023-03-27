@@ -1,39 +1,28 @@
 <script>
  let threads = [
   {
-    "id": 1,
     "title": "General Document",
     "topics": [
       {
-        "id": 1,
         "title": "AGM",
         "posts": [
           {
-            "id": 1,
             "author": "User A",
             "message": "This is the first post.",
             "comments": [
               {
-                "id": 1,
                 "author": "User B",
                 "message": "This is a comment on the first post."
               }
             ]
           },
           {
-            "id": 2,
             "author": "User C",
             "message": "This is the second post.",
             "comments": [
               {
-                "id": 2,
                 "author": "User D",
                 "message": "This is a comment on the second post."
-              },
-              {
-                "id": 3,
-                "author": "User E",
-                "message": "This is another comment on the second post."
               }
             ]
           }
@@ -42,39 +31,43 @@
     ]
   },
   {
-    "id": 2,
     "title": "Committees",
     "topics": [
       {
-        "id": 1,
         "title": "Administrative",
         "posts": [
           {
-            "id": 1,
             "author": "User F",
             "message": "This is the first post.",
             "comments": [
               {
-                "id": 4,
                 "author": "User G",
                 "message": "This is a comment on the first post."
-              },
-              {
-                "id": 5,
-                "author": "User H",
-                "message": "This is another comment on the first post."
               }
             ]
           },
           {
-            "id": 2,
             "author": "User I",
             "message": "This is the second post.",
             "comments": [
               {
-                "id": 6,
                 "author": "User J",
                 "message": "This is a comment on the second post."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Regional Committees",
+        "posts": [
+          {
+            "author": "User K",
+            "message": "This is the first post for MRegional Committees.",
+            "comments": [
+              {
+                "author": "User L",
+                "message": "This is a comment on the first post for Regional Committees."
               }
             ]
           }
@@ -83,6 +76,7 @@
     ]
   }
 ];
+
 
 
   let selectedThread = threads[0];
