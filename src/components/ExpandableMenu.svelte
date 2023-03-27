@@ -55,21 +55,12 @@
               {item.title}
             </button>
             {#if item.items}
-              <svg
-                class="{item.expanded ? 'transform rotate-180' : ''} w-1 h-1 text-gray-100 transition-all duration-300"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 12 6"
-                xmlns="http://www.w3.org/2000/svg"
-                on:click={() => item.expanded = !item.expanded}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="1"
-                  d="M19 9l-7 1-1-1"
-                ></path>
-              </svg>
+              <button type="button" on:click={() => item.expanded = !item.expanded}>
+  <svg class="{item.expanded ? 'transform rotate-180' : ''} w-2 h-1 text-gray-100 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 12 6" xmlns="http://www.w3.org/2000/svg">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" d="M19 9l-7 1-1-1"></path>
+  </svg>
+</button>
+
             {/if}
           </div>
           {#if item.expanded}

@@ -81,23 +81,25 @@
   } else {
     // If the search query is not empty, filter the items and sub-items based on the query
     filteredData = exampleData.map(data => {
-      // Filter the top-level item based on the query
-      const filteredItem = {...data};
-      filteredItem.items = filteredItem.items.filter(item => item.title.toLowerCase().includes(search));
-
-      // Filter the sub-items based on the query
-      filteredItem.items = filteredItem.items.map(item => {
-        const filteredSubItems = item.items ? item.items.filter(subItem => subItem.title.toLowerCase().includes(search)) : null;
-        return {
-          ...item,
-          items: filteredSubItems
-        };
-      }).filter(item => item.items !== null);
+      const filteredItem = { ...data };
+      filteredItem.items = filteredItem.items.filter(item => {
+        if (item.title.toLowerCase().includes(search)) {
+          return true;
+        } else if (item.items) {
+          const filteredSubItems = item.items.filter(subItem => subItem.title.toLowerCase().includes(search));
+          if (filteredSubItems.length > 0) {
+            item.items = filteredSubItems;
+            return true;
+          }
+        }
+        return false;
+      });
 
       return filteredItem;
     }).filter(data => data.items.length > 0);
   }
 }
+
 
 </script>
 
