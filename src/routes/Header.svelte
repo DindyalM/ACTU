@@ -10,7 +10,7 @@
         <li><a href="/documents" class="hover:text-gray-400">Documents</a></li>
         <li><a href="/events" class="hover:text-gray-400">Events</a></li>
         <li><a href="/threads" class="hover:text-gray-400">Committees Thread</a></li>
-        <li><a href="#" class="hover:text-gray-400">Magazines</a></li>
+        <li><a href="/factbook" class="hover:text-gray-400">FactBook</a></li>
       </ul>
     </nav>
   </div>

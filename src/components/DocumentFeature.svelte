@@ -1,6 +1,5 @@
 <script>
   import ExpandableMenu from "./ExpandableMenu.svelte";
-
   let search = "";
   let exampleData = [    {      title: "General Document",      items: [        { title: "AGM" },        { title: "Annual Reports" },        { title: "By-Laws" },      ],
     },

@@ -1,6 +1,7 @@
 <script>
   import { onMount } from 'svelte';
   import members from '../../members.json';
+  import BuyersGuide from "../../components/buyer.svelte"
   
   let companies = [];
   let filteredCompanies = [];
@@ -46,6 +47,11 @@
     filteredCompanies = companies;
   });
 </script>
+<div class="flex flex-col items-center">
+  <BuyersGuide />
+  
+  <!-- Rest of the page -->
+</div>
 <div class="flex flex-col items-center">
   <h1 class="text-3xl font-bold my-4">Member Search</h1>
 

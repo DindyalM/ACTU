@@ -5,7 +5,7 @@
   let newsItems = [];
 
   onMount(async () => {
-    const res = await fetch('https://jsonplaceholder.typicode.com/posts');
+    const res = await fetch('https://jsonplaceholder.typicode.com/posts?_limit=3');
     newsItems = await res.json();
   });
 </script>
@@ -49,7 +49,8 @@ p {
 
 </style>
 <main class="container mx-auto px-4 py-8">
-  <h1 class="text-3xl font-bold mb-8">Latest News</h1>
+ <div class="container">
+  <h1>Latest News</h1>
   {#if newsItems.length === 0}
     <p>Loading...</p>
   {:else}
@@ -61,5 +62,22 @@ p {
       />
     {/each}
   {/if}
+</div>
+
+<div class="container">
+  <h1>Videos & Interviews</h1>
+  {#if newsItems.length === 0}
+    <p>Loading...</p>
+  {:else}
+    {#each newsItems as newsItem}
+      <NewsItem
+        title={newsItem.title}
+        content={newsItem.body}
+        key={newsItem.id}
+      />
+    {/each}
+  {/if}
+</div>
+
 </main>
 
