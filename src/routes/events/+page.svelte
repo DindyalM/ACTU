@@ -35,9 +35,9 @@
     // Handle form submission
   }
   
-  
+import Event from "../../components/event.svelte"
 </script>
-
+<Event />
 <div class="page">
   <h2 class="title">Past Events</h2>
   <div class="events-list">
