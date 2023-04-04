@@ -161,9 +161,17 @@ let threads = [
   function showCommentBox(post) {
   post.showCommentBox = !post.showCommentBox;
 }
-
+import Committees from "../../components/committees.svelte"
 </script>
 <!-- src/routes/threads/+page.svelte -->
+<div class="container mx-auto my-4">
+<h4>Commitee Life</h4>
+<Committees/>
+</div>
+<br>
+<br>
+<br>
+<h1>THREAD</h1>
 <div class="container mx-auto my-4">
   <h1 class="text-2xl font-bold mb-4">{selectedThread.title}</h1>
 
