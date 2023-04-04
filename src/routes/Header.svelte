@@ -11,6 +11,7 @@
         <li><a href="/events" class="hover:text-gray-400">Events</a></li>
         <li><a href="/threads" class="hover:text-gray-400">Committees</a></li>
         <li><a href="/factbook" class="hover:text-gray-400">FactBook</a></li>
+         <li><a href="/reports" class="hover:text-gray-400">Reports</a></li>
       </ul>
     </nav>
   </div>
